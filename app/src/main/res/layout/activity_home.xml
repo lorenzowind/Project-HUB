@@ -70,31 +70,31 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
+            android:layout_above="@+id/button_create_project_home"
+            android:layout_centerInParent="false"
+            android:layout_centerVertical="true"
+
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
 
-            android:layout_above="@+id/button_create_account_login"
-            android:layout_centerInParent="false"
-            android:layout_centerVertical="true"
-
             android:background="#ffffff"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <FrameLayout
                 android:id="@+id/frame_empty_projects"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
+                    android:layout_gravity="center"
                     android:layout_marginBottom="40dp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
 
-                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
                     android:gravity="center"
 
                     android:text="Press New Project to create a new Idea, storing your thoughts" />
@@ -103,9 +103,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:layout_marginTop="40dp"
-
                     android:layout_gravity="center"
+
+                    android:layout_marginTop="40dp"
 
                     app:srcCompat="@drawable/arrow_below" />
 
@@ -118,7 +118,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
-            android:layout_above="@+id/button_create_account_login"
+            android:layout_above="@+id/button_create_project_home"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
 
