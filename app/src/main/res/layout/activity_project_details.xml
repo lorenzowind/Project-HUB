@@ -17,7 +17,7 @@
         android:orientation="horizontal" >
 
         <ImageView
-            android:id="@+id/button_cancel_create_project"
+            android:id="@+id/button_cancel_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -37,11 +37,11 @@
             android:layout_centerHorizontal="false"
             android:layout_centerInParent="false"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/button_cancel_create_project"
+            android:layout_toRightOf="@+id/button_cancel_profile"
 
             android:textColor="#ffffff"
             android:textSize="24sp"
-            android:text="N E W P R O J E C T" />
+            android:text="D E T A I L S" />
 
         <ImageView
             android:id="@+id/button_profile_home"
@@ -80,6 +80,15 @@
             android:background="#ffffff"
             android:orientation="vertical" >
 
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/project_image_big" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,11 +96,10 @@
                 android:layout_marginBottom="6dp"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:layout_marginTop="12dp"
 
+                android:text="Name"
                 android:textColor="#2699fb"
-                android:textSize="16sp"
-                android:text="Name"/>
+                android:textSize="16sp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -102,8 +110,8 @@
 
                 android:background="#BCE0FD">
 
-                <EditText
-                    android:id="@+id/input_name_create_project"
+                <TextView
+                    android:id="@+id/text_name_create_project"
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
 
@@ -113,6 +121,7 @@
                     android:layout_marginRight="18dp"
 
                     android:background="#f1f9ff"
+                    android:gravity="center_vertical"
                     android:inputType="textPersonName"
 
                     android:textColor="#2699fb"
@@ -143,8 +152,8 @@
 
                 android:background="#BCE0FD" >
 
-                <EditText
-                    android:id="@+id/input_type_create_project"
+                <TextView
+                    android:id="@+id/text_type_create_project"
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
 
@@ -152,8 +161,9 @@
                     android:layout_margin="1dp"
                     android:layout_marginLeft="18dp"
                     android:layout_marginRight="18dp"
-
                     android:background="#f1f9ff "
+
+                    android:gravity="center_vertical"
                     android:inputType="text"
 
                     android:textColor="#2699fb"
@@ -184,8 +194,8 @@
 
                 android:background="#BCE0FD">
 
-                <EditText
-                    android:id="@+id/input_description_create_project"
+                <TextView
+                    android:id="@+id/text_description_create_project"
                     android:layout_width="match_parent"
                     android:layout_height="128dp"
 
@@ -196,86 +206,12 @@
                     android:layout_margin="1dp"
 
                     android:background="#f1f9ff"
-                    android:inputType="textMultiLine"
                     android:gravity="top"
+                    android:inputType="textMultiLine"
 
                     android:textColor="#2699fb"
                     android:textSize="18sp"
                     android:text="A cool project." />
-
-            </FrameLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginBottom="6dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
-                android:layout_marginTop="12dp"
-
-                android:textColor="#2699fb"
-                android:textSize="16sp"
-                android:text="Image" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
-
-                android:background="#BCE0FD">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="32dp"
-
-                    android:paddingLeft="6dp"
-                    android:layout_margin="1dp"
-                    android:layout_marginLeft="18dp"
-                    android:layout_marginRight="18dp"
-
-                    android:background="#f1f9ff"
-                    android:gravity="fill_horizontal|center"
-
-                    android:textColor="#bce0fd"
-                    android:textSize="18sp"
-                    android:textStyle="italic"
-                    android:text="Choose an image" />
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/button_create_project"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="25dp">
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-
-                    app:cardBackgroundColor="#404bad"
-                    app:cardCornerRadius="10dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-                        android:gravity="center"
-
-                        android:textColor="#ffffff"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:text="CREATE" />
-
-                </android.support.v7.widget.CardView>
 
             </FrameLayout>
 

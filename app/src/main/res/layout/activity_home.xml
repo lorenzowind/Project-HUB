@@ -55,7 +55,7 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center"
 
-            app:srcCompat="@drawable/profile" />
+            app:srcCompat="@drawable/profile_small" />
 
     </RelativeLayout>
 
@@ -156,7 +156,7 @@
                         android:layout_marginLeft="14dp"
                         android:layout_marginTop="14dp"
 
-                        app:srcCompat="@drawable/project_image" />
+                        app:srcCompat="@drawable/project_image_small" />
 
                     <TextView
                         android:id="@+id/project_name"
