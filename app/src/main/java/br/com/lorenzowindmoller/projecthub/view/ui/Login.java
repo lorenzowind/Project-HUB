@@ -1,7 +1,9 @@
-package br.com.lorenzowindmoller.projecthub;
+package br.com.lorenzowindmoller.projecthub.view.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import br.com.lorenzowindmoller.projecthub.R;
 
 public class Login extends AppCompatActivity {
 
