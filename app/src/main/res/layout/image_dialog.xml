@@ -9,30 +9,34 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+
         android:orientation="horizontal">
 
         <EditText
+            android:layout_weight="1"
             android:id="@+id/text_url_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
 
-            android:layout_weight="1"
-
             android:hint="URL Image"
             android:inputType="text" />
 
         <ImageView
+            android:layout_weight="5"
             android:id="@+id/copy_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_gravity="center"
             android:layout_toRightOf="@+id/text_url_image"
-            android:layout_weight="5"
+
+            android:layout_gravity="center"
+
             app:srcCompat="@drawable/paste" />
 
 

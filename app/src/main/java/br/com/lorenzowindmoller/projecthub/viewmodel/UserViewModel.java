@@ -1,13 +1,13 @@
 package br.com.lorenzowindmoller.projecthub.viewmodel;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.LiveData;
-import android.support.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.annotation.NonNull;
 
 import java.util.List;
 
-import br.com.lorenzowindmoller.projecthub.service.model.User;
+import br.com.lorenzowindmoller.projecthub.service.model.User.User;
 import br.com.lorenzowindmoller.projecthub.service.repository.User.UserRepository;
 
 public class UserViewModel extends AndroidViewModel {

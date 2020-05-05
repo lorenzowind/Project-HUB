@@ -87,7 +87,7 @@
                 android:layout_marginBottom="6dp"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="20dp"
 
                 android:text="Name"
                 android:textColor="#2699fb"
@@ -129,7 +129,7 @@
                 android:layout_marginBottom="6dp"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="20dp"
 
                 android:text="Type"
                 android:textColor="#2699fb"
@@ -171,7 +171,7 @@
                 android:layout_marginBottom="6dp"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="20dp"
 
                 android:text="Description"
                 android:textColor="#2699fb"
@@ -190,21 +190,21 @@
                 <EditText
                     android:id="@+id/input_description_create_project"
                     android:layout_width="match_parent"
-                    android:layout_height="128dp"
+                    android:layout_height="200dp"
 
+                    android:layout_margin="1dp"
+                    android:background="#f1f9ff"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
                     android:paddingBottom="6dp"
+
                     android:paddingLeft="6dp"
                     android:paddingRight="6dp"
                     android:paddingTop="6dp"
-                    android:layout_margin="1dp"
 
-                    android:background="#f1f9ff"
-                    android:inputType="textMultiLine"
-                    android:gravity="top"
-
+                    android:text="A cool project."
                     android:textColor="#2699fb"
-                    android:textSize="18sp"
-                    android:text="A cool project." />
+                    android:textSize="18sp" />
 
             </FrameLayout>
 
@@ -215,7 +215,7 @@
                 android:layout_marginBottom="6dp"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="20dp"
 
                 android:text="Image"
                 android:textColor="#2699fb"
@@ -261,7 +261,7 @@
                 android:layout_marginRight="40dp"
                 android:layout_marginTop="25dp">
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
 
@@ -279,7 +279,7 @@
                         android:textStyle="bold"
                         android:text="CREATE" />
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
             </FrameLayout>
 

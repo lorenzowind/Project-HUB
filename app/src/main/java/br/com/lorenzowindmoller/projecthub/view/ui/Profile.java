@@ -1,15 +1,9 @@
 package br.com.lorenzowindmoller.projecthub.view.ui;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.provider.MediaStore;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Pair;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -18,10 +12,9 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import java.io.ByteArrayOutputStream;
-
 import br.com.lorenzowindmoller.projecthub.R;
-import br.com.lorenzowindmoller.projecthub.service.model.User;
+import br.com.lorenzowindmoller.projecthub.service.model.User.User;
+import br.com.lorenzowindmoller.projecthub.view.ui.component.ImageDialog;
 
 public class Profile extends AppCompatActivity implements View.OnClickListener, ImageDialog.ImageDialogListener {
     public static final String EXTRA_NAME =
@@ -74,10 +67,10 @@ public class Profile extends AppCompatActivity implements View.OnClickListener, 
 
         if (user.getImage() != "") {
             Picasso.get()
-                    .load(user.getImage())
-                    .resize(180, 180)
-                    .centerCrop()
-                    .into(image_profile);
+                .load(user.getImage())
+                .resize(180, 180)
+                .centerCrop()
+                .into(image_profile);
         }
 
         button_cancel.setOnClickListener(this);
@@ -138,10 +131,10 @@ public class Profile extends AppCompatActivity implements View.OnClickListener, 
         if(url.length() != 0) {
             image = url;
             Picasso.get()
-                    .load(image)
-                    .resize(180, 180)
-                    .centerCrop()
-                    .into(image_profile);
+                .load(image)
+                .resize(180, 180)
+                .centerCrop()
+                .into(image_profile);
         }
         else {
             Toast.makeText(this, "URL not valid", Toast.LENGTH_SHORT).show();

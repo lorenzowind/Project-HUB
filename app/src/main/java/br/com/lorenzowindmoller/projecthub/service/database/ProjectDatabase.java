@@ -1,12 +1,12 @@
 package br.com.lorenzowindmoller.projecthub.service.database;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 import android.content.Context;
 
-import br.com.lorenzowindmoller.projecthub.service.model.Project;
-import br.com.lorenzowindmoller.projecthub.service.model.User;
+import br.com.lorenzowindmoller.projecthub.service.model.Project.Project;
+import br.com.lorenzowindmoller.projecthub.service.model.User.User;
 import br.com.lorenzowindmoller.projecthub.service.repository.Project.ProjectDao;
 import br.com.lorenzowindmoller.projecthub.service.repository.User.UserDao;
 

@@ -1,13 +1,13 @@
 package br.com.lorenzowindmoller.projecthub.service.repository.Project;
 
 import android.app.Application;
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 import android.os.AsyncTask;
 
 import java.util.List;
 
 import br.com.lorenzowindmoller.projecthub.service.database.ProjectDatabase;
-import br.com.lorenzowindmoller.projecthub.service.model.Project;
+import br.com.lorenzowindmoller.projecthub.service.model.Project.Project;
 
 public class ProjectRepository {
     private ProjectDao projectDao;

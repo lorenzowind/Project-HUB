@@ -119,7 +119,7 @@
             android:layout_marginRight="40dp"
             android:layout_marginTop="40dp" >
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
 
@@ -136,7 +136,7 @@
                     android:textSize="16sp"
                     android:text="CONTINUE" />
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
         </FrameLayout>
 
@@ -149,7 +149,7 @@
             android:layout_marginRight="40dp"
             android:layout_marginTop="20dp" >
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
 
@@ -166,7 +166,7 @@
                     android:textSize="16sp"
                     android:text="CREATE AN ACCOUNT" />
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
         </FrameLayout>
 

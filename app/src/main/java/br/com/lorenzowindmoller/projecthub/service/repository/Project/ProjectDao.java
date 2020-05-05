@@ -1,15 +1,15 @@
 package br.com.lorenzowindmoller.projecthub.service.repository.Project;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Delete;
-import android.arch.persistence.room.Insert;
-import android.arch.persistence.room.Query;
-import android.arch.persistence.room.Update;
+import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
-import br.com.lorenzowindmoller.projecthub.service.model.Project;
+import br.com.lorenzowindmoller.projecthub.service.model.Project.Project;
 
 @Dao
 public interface ProjectDao {

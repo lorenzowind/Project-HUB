@@ -1,7 +1,7 @@
-package br.com.lorenzowindmoller.projecthub.service.model;
+package br.com.lorenzowindmoller.projecthub.service.model.Project;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "projects_table")
 public class Project {
@@ -17,9 +17,9 @@ public class Project {
 
     private String description;
 
-    private byte[] image;
+    private String image;
 
-    public Project(int user_id, String name, String type, String description, byte[] image) {
+    public Project(int user_id, String name, String type, String description, String image) {
         this.user_id = user_id;
         this.name = name;
         this.type = type;
@@ -51,7 +51,7 @@ public class Project {
         return description;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 }

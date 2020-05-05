@@ -1,16 +1,13 @@
 package br.com.lorenzowindmoller.projecthub.service.repository.User;
 
 import android.app.Application;
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
 import java.util.List;
 
 import br.com.lorenzowindmoller.projecthub.service.database.ProjectDatabase;
-import br.com.lorenzowindmoller.projecthub.service.model.Project;
-import br.com.lorenzowindmoller.projecthub.service.model.User;
-import br.com.lorenzowindmoller.projecthub.view.ui.Login;
+import br.com.lorenzowindmoller.projecthub.service.model.User.User;
 
 public class UserRepository {
     private UserDao userDao;

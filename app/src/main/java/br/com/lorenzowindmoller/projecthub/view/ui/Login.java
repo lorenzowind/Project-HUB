@@ -1,23 +1,21 @@
 package br.com.lorenzowindmoller.projecthub.view.ui;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.os.Parcelable;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.lorenzowindmoller.projecthub.R;
-import br.com.lorenzowindmoller.projecthub.service.model.User;
+import br.com.lorenzowindmoller.projecthub.service.model.User.User;
 import br.com.lorenzowindmoller.projecthub.viewmodel.UserViewModel;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
