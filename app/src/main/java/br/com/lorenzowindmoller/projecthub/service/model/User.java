@@ -3,8 +3,10 @@ package br.com.lorenzowindmoller.projecthub.service.model;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "users_table")
-public class User {
+public class User implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;

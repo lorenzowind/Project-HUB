@@ -3,6 +3,7 @@ package br.com.lorenzowindmoller.projecthub.view.ui;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.lorenzowindmoller.projecthub.R;
@@ -93,8 +96,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         for (User user : list_users) {
             if (user.getEmail().equals(email) && user.getPassword().equals(password)){
-                Toast.makeText(this, user.getEmail(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), Home.class);
+                intent.putExtra("user", user);
                 startActivity(intent);
                 finish();
                 return;
