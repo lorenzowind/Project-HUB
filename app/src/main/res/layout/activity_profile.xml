@@ -66,9 +66,9 @@
 
         <ImageView
             android:id="@+id/image_profile"
-            android:layout_width="200dp"
+            android:layout_width="180dp"
 
-            android:layout_height="200dp"
+            android:layout_height="180dp"
 
             android:layout_centerHorizontal="true"
 
@@ -81,8 +81,9 @@
             android:layout_height="wrap_content"
 
             android:layout_above="@+id/textview_name_profile"
-            android:layout_toRightOf="@+id/image_profile"
+            android:layout_marginLeft="20dp"
 
+            android:layout_toRightOf="@+id/image_profile"
             app:srcCompat="@drawable/edit_image" />
 
         <TextView
@@ -94,7 +95,7 @@
             android:layout_marginBottom="6dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
 
             android:text="Full name"
             android:textColor="#404bad"

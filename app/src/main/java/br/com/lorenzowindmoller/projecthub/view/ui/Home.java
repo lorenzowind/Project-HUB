@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.ByteArrayOutputStream;
 
 import br.com.lorenzowindmoller.projecthub.R;
@@ -43,6 +45,14 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         button_back = findViewById(R.id.button_back_home);
         button_image = findViewById(R.id.button_profile_home);
 
+        if (user.getImage() != "") {
+            Picasso.get()
+                    .load(user.getImage())
+                    .resize(180, 180)
+                    .centerCrop()
+                    .into(button_image);
+        }
+
         button_back.setOnClickListener(this);
         button_image.setOnClickListener(this);
     }
@@ -68,15 +78,23 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             String name = data.getStringExtra(Profile.EXTRA_NAME);
             String email = data.getStringExtra(Profile.EXTRA_EMAIL);
             String password = data.getStringExtra(Profile.EXTRA_PASSWORD);
-            //String image = data.getStringExtra(Profile.EXTRA_IMAGE);
+            String image = data.getStringExtra(Profile.EXTRA_IMAGE);
 
-            User new_user = new User(name, email, password, "");
+            User new_user = new User(name, email, password, image);
 
             new_user.setId(user.getId());
 
             user = new_user;
 
             userViewModel.update(user);
+
+            if (!image.equals("")) {
+                Picasso.get()
+                        .load(image)
+                        .resize(50, 50)
+                        .centerCrop()
+                        .into(button_image);
+            }
 
             Toast.makeText(this, "User updated", Toast.LENGTH_SHORT).show();
         }

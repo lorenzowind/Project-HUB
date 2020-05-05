@@ -3,6 +3,7 @@ package br.com.lorenzowindmoller.projecthub.view.ui;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -22,17 +23,15 @@ import java.io.ByteArrayOutputStream;
 import br.com.lorenzowindmoller.projecthub.R;
 import br.com.lorenzowindmoller.projecthub.service.model.User;
 
-public class Profile extends AppCompatActivity implements View.OnClickListener {
+public class Profile extends AppCompatActivity implements View.OnClickListener, ImageDialog.ImageDialogListener {
     public static final String EXTRA_NAME =
             "package br.com.lorenzowindmoller.projecthub.view.ui.EXTRA_NAME";
     public static final String EXTRA_EMAIL =
             "package br.com.lorenzowindmoller.projecthub.view.ui.EXTRA_EMAIL";
     public static final String EXTRA_PASSWORD =
             "package br.com.lorenzowindmoller.projecthub.view.ui.EXTRA_PASSWORD";
-    //public static final String EXTRA_IMAGE =
-    //      "package br.com.lorenzowindmoller.projecthub.view.ui.EXTRA_IMAGE";
-
-    private static final int PICK_IMAGE = 100;
+    public static final String EXTRA_IMAGE =
+            "package br.com.lorenzowindmoller.projecthub.view.ui.EXTRA_IMAGE";
 
     private ImageView button_cancel;
     private ImageView button_confirm;
@@ -41,7 +40,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     private TextView button_delete_account;
 
     private ImageView image_profile;
-    //private String image;
+    private String image = "";
 
     private EditText text_name;
     private EditText text_email;
@@ -73,6 +72,14 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         text_email.setText(user.getEmail());
         text_password.setText(user.getPassword());
 
+        if (user.getImage() != "") {
+            Picasso.get()
+                    .load(user.getImage())
+                    .resize(180, 180)
+                    .centerCrop()
+                    .into(image_profile);
+        }
+
         button_cancel.setOnClickListener(this);
         button_confirm.setOnClickListener(this);
         button_edit_image.setOnClickListener(this);
@@ -90,7 +97,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             finish();
         }
 
-        //else if (v == button_edit_image) change_image();
+        else if (v == button_edit_image) change_image();
 
         else if (v == button_delete_account) {
             Intent data = new Intent();
@@ -113,31 +120,34 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         data.putExtra(EXTRA_NAME, name);
         data.putExtra(EXTRA_EMAIL, email);
         data.putExtra(EXTRA_PASSWORD, password);
-        //data.putExtra(EXTRA_IMAGE, image);
+        data.putExtra(EXTRA_IMAGE, image);
 
         setResult(RESULT_OK, data);
         finish();
     }
 
-    /*private void change_image() {
-        DialogImage dialogEmail = new DialogImage();
-        dialogEmail.show(getSupportFragmentManager(), "DialogImage");
-        Picasso.get()
-                .load("https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg")
-                .into(image_profile);
+    private void change_image() {
+        ImageDialog dialogEmail = new ImageDialog();
+        dialogEmail.show(getSupportFragmentManager(), "ImageDialog");
     }
 
     @Override
-    public void applyTextsDialogImage(String url) {
-        if(url.length() != 0 && (url.endsWith(".png") || url.endsWith(".jpeg"))) {
+    public void applyTextImageDialog(String url) {
+        Drawable drawable = image_profile.getDrawable();
+
+        if(url.length() != 0) {
+            image = url;
             Picasso.get()
-                    .load(url)
-                    .resize(200, 200)
+                    .load(image)
+                    .resize(180, 180)
                     .centerCrop()
                     .into(image_profile);
-        } else {
+        }
+        else {
             Toast.makeText(this, "URL not valid", Toast.LENGTH_SHORT).show();
         }
-    }*/
+
+        if (image_profile.getDrawable() == null || url.length() == 0) image_profile.setImageDrawable(drawable);
+    }
 
 }
