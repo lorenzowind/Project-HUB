@@ -10,7 +10,7 @@ import br.com.lorenzowindmoller.projecthub.service.model.User;
 import br.com.lorenzowindmoller.projecthub.service.repository.Project.ProjectDao;
 import br.com.lorenzowindmoller.projecthub.service.repository.User.UserDao;
 
-@Database(entities = {User.class, Project.class}, version = 1)
+@Database(entities = {User.class, Project.class}, version = 1, exportSchema = false)
 public abstract class ProjectDatabase extends RoomDatabase {
 
     private static ProjectDatabase instance;

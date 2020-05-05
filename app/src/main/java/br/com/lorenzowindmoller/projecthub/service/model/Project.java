@@ -31,6 +31,10 @@ public class Project {
         this.id = id;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public int getUser_id() {
         return user_id;
     }
