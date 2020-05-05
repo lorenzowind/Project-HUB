@@ -15,10 +15,13 @@ public class User {
 
     private String password;
 
-    public User(String name, String email, String password) {
+    private byte[] image;
+
+    public User(String name, String email, String password, byte[] image) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.image = image;
     }
 
     public void setId(int id) {
@@ -39,5 +42,9 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public byte[] getImage() {
+        return image;
     }
 }
