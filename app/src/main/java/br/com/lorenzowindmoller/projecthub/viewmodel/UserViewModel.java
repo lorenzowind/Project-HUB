@@ -12,7 +12,6 @@ import br.com.lorenzowindmoller.projecthub.service.repository.User.UserRepositor
 
 public class UserViewModel extends AndroidViewModel {
     private UserRepository repository;
-    private LiveData<List<User>> user;
 
     public UserViewModel(@NonNull Application application) {
         super(application);
@@ -31,8 +30,7 @@ public class UserViewModel extends AndroidViewModel {
         repository.delete(user);
     }
 
-    public LiveData<List<User>> getUser(String email, String password) {
-        user = repository.getUser(email, password);
-        return user;
+    public LiveData<List<User>> getUsers() {
+        return repository.getUsers();
     }
 }

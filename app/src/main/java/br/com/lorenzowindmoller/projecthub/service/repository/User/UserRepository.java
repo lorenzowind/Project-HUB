@@ -11,7 +11,6 @@ import br.com.lorenzowindmoller.projecthub.service.model.User;
 
 public class UserRepository {
     private UserDao userDao;
-    private LiveData<List<User>> user;
 
     public UserRepository(Application application) {
         ProjectDatabase database = ProjectDatabase.getInstance(application);
@@ -30,9 +29,8 @@ public class UserRepository {
         new DeleteUserAsyncTask(userDao).execute(user);
     }
 
-    public LiveData<List<User>> getUser(String email, String password) {
-        user = userDao.getUser(email, password);
-        return user;
+    public LiveData<List<User>> getUsers() {
+        return userDao.getUsers();
     }
 
     private static class InsertUserAsyncTask extends AsyncTask<User, Void, Void> {
@@ -58,7 +56,7 @@ public class UserRepository {
 
         @Override
         protected Void doInBackground(User... users) {
-            userDao.insert(users[0]);
+            userDao.update(users[0]);
             return null;
         }
     }
@@ -72,7 +70,7 @@ public class UserRepository {
 
         @Override
         protected Void doInBackground(User... users) {
-            userDao.insert(users[0]);
+            userDao.delete(users[0]);
             return null;
         }
     }

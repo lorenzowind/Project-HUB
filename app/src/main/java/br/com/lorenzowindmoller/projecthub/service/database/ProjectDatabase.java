@@ -23,31 +23,8 @@ public abstract class ProjectDatabase extends RoomDatabase {
             instance = Room.databaseBuilder(context.getApplicationContext(),
                     ProjectDatabase.class,"project_hub_database")
                     .fallbackToDestructiveMigration()
-                    //.addCallback(roomCallback)
                     .build();
         }
         return instance;
     }
-
-    /*private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
-        @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
-            new PopulateDbAsyncTask(instance).execute();
-        }
-    };
-
-    private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
-        private ProjectDao projectDao;
-
-        private PopulateDbAsyncTask(ProjectDatabase db) {
-            projectDao = db.projectDao();
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            projectDao.insert(new Project(0,"Project 1", "Organization", "A cool project.", null));
-            return null;
-        }
-    }*/
 }
