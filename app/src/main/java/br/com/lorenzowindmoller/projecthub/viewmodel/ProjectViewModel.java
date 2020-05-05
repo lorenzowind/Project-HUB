@@ -14,10 +14,9 @@ public class ProjectViewModel extends AndroidViewModel {
     private ProjectRepository repository;
     private LiveData<List<Project>> allProjects;
 
-    public ProjectViewModel(@NonNull Application application, int user_id) {
+    public ProjectViewModel(@NonNull Application application) {
         super(application);
-        repository = new ProjectRepository(application, user_id);
-        allProjects = repository.getAllProjects();
+        repository = new ProjectRepository(application);
     }
 
     public void insert(Project project) {
@@ -36,7 +35,8 @@ public class ProjectViewModel extends AndroidViewModel {
         repository.deleteAllProjects();
     }
 
-    public LiveData<List<Project>> getAllProjects() {
+    public LiveData<List<Project>> getAllProjects(int user_id) {
+        allProjects = repository.getAllProjects(user_id);
         return allProjects;
     }
 }

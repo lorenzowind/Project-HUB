@@ -13,10 +13,9 @@ public class UserRepository {
     private UserDao userDao;
     private LiveData<List<User>> user;
 
-    public UserRepository(Application application, String email, String password) {
+    public UserRepository(Application application) {
         ProjectDatabase database = ProjectDatabase.getInstance(application);
         userDao = database.userDao();
-        user = userDao.getUser(email, password);
     }
 
     public void insert(User user) {
@@ -31,7 +30,8 @@ public class UserRepository {
         new DeleteUserAsyncTask(userDao).execute(user);
     }
 
-    public LiveData<List<User>> getUser() {
+    public LiveData<List<User>> getUser(String email, String password) {
+        user = userDao.getUser(email, password);
         return user;
     }
 

@@ -13,10 +13,9 @@ public class ProjectRepository {
     private ProjectDao projectDao;
     private LiveData<List<Project>> allProjects;
 
-    public ProjectRepository(Application application, int user_id) {
+    public ProjectRepository(Application application) {
         ProjectDatabase database = ProjectDatabase.getInstance(application);
         projectDao = database.projectDao();
-        allProjects = projectDao.getAllProjects(user_id);
     }
 
     public void insert(Project project) {
@@ -35,7 +34,8 @@ public class ProjectRepository {
         new DeleteAllProjectAsyncTask(projectDao).execute();
     }
 
-    public LiveData<List<Project>> getAllProjects() {
+    public LiveData<List<Project>> getAllProjects(int user_id) {
+        allProjects = projectDao.getAllProjects(user_id);
         return allProjects;
     }
 

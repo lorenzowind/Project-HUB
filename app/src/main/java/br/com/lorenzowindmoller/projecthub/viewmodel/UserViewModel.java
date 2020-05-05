@@ -14,10 +14,9 @@ public class UserViewModel extends AndroidViewModel {
     private UserRepository repository;
     private LiveData<List<User>> user;
 
-    public UserViewModel(@NonNull Application application, String email, String password) {
+    public UserViewModel(@NonNull Application application) {
         super(application);
-        repository = new UserRepository(application, email, password);
-        user = repository.getUser();
+        repository = new UserRepository(application);
     }
 
     public void insert(User user) {
@@ -32,7 +31,8 @@ public class UserViewModel extends AndroidViewModel {
         repository.delete(user);
     }
 
-    public LiveData<List<User>> getUser() {
+    public LiveData<List<User>> getUser(String email, String password) {
+        user = repository.getUser(email, password);
         return user;
     }
 }
