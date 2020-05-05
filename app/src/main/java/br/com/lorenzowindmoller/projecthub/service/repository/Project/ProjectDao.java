@@ -1,4 +1,4 @@
-package br.com.lorenzowindmoller.projecthub.service.repository;
+package br.com.lorenzowindmoller.projecthub.service.repository.Project;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
@@ -26,6 +26,6 @@ public interface ProjectDao {
     @Query("DELETE FROM projects_table")
     void deleteAllProjects();
 
-    @Query("SELECT * FROM projects_table")
-    LiveData<List<Project>> getAllProjects();
+    @Query("SELECT * FROM projects_table WHERE user_id = :user_id")
+    LiveData<List<Project>> getAllProjects(int user_id);
 }

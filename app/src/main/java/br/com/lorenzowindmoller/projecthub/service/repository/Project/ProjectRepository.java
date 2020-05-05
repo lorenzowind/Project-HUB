@@ -1,4 +1,4 @@
-package br.com.lorenzowindmoller.projecthub.service.repository;
+package br.com.lorenzowindmoller.projecthub.service.repository.Project;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
@@ -13,10 +13,10 @@ public class ProjectRepository {
     private ProjectDao projectDao;
     private LiveData<List<Project>> allProjects;
 
-    public ProjectRepository(Application application) {
-        ProjectDatabase databse = ProjectDatabase.getInstance(application);
-        projectDao = databse.projectDao();
-        allProjects = projectDao.getAllProjects();
+    public ProjectRepository(Application application, int user_id) {
+        ProjectDatabase database = ProjectDatabase.getInstance(application);
+        projectDao = database.projectDao();
+        allProjects = projectDao.getAllProjects(user_id);
     }
 
     public void insert(Project project) {

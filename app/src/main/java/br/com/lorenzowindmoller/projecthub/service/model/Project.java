@@ -9,6 +9,8 @@ public class Project {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
+    private int user_id;
+
     private String name;
 
     private String type;
@@ -17,7 +19,8 @@ public class Project {
 
     private byte[] image;
 
-    public Project(String name, String type, String description, byte[] image) {
+    public Project(int user_id, String name, String type, String description, byte[] image) {
+        this.user_id = user_id;
         this.name = name;
         this.type = type;
         this.description = description;
@@ -28,8 +31,8 @@ public class Project {
         this.id = id;
     }
 
-    public int getId() {
-        return id;
+    public int getUser_id() {
+        return user_id;
     }
 
     public String getName() {

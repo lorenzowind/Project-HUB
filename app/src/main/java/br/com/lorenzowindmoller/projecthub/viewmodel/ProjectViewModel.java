@@ -8,15 +8,15 @@ import android.support.annotation.NonNull;
 import java.util.List;
 
 import br.com.lorenzowindmoller.projecthub.service.model.Project;
-import br.com.lorenzowindmoller.projecthub.service.repository.ProjectRepository;
+import br.com.lorenzowindmoller.projecthub.service.repository.Project.ProjectRepository;
 
 public class ProjectViewModel extends AndroidViewModel {
     private ProjectRepository repository;
     private LiveData<List<Project>> allProjects;
 
-    public ProjectViewModel(@NonNull Application application) {
+    public ProjectViewModel(@NonNull Application application, int user_id) {
         super(application);
-        repository = new ProjectRepository(application);
+        repository = new ProjectRepository(application, user_id);
         allProjects = repository.getAllProjects();
     }
 
