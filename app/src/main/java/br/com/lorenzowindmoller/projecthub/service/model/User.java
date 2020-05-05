@@ -15,9 +15,9 @@ public class User {
 
     private String password;
 
-    private byte[] image;
+    private String image;
 
-    public User(String name, String email, String password, byte[] image) {
+    public User(String name, String email, String password, String image) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -44,7 +44,7 @@ public class User {
         return password;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 }
