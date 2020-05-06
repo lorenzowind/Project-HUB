@@ -85,15 +85,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
 
-                android:paddingLeft="18dp"
                 android:layout_margin="1dp"
-
                 android:background="#ffffff"
+
                 android:inputType="textPersonName"
+                android:paddingLeft="18dp"
 
                 android:textColor="#919cff"
-                android:textSize="18sp"
-                android:text="Lorenzo Windmoller Martins" />
+                android:textSize="18sp" />
 
         </FrameLayout>
 
@@ -119,15 +118,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
 
-                android:paddingLeft="18dp"
                 android:layout_margin="1dp"
-
                 android:background="#ffffff"
+
                 android:inputType="textEmailAddress"
+                android:paddingLeft="18dp"
 
                 android:textColor="#919cff"
-                android:textSize="18sp"
-                android:text="lorenzomart01@gmail.com" />
+                android:textSize="18sp" />
 
         </FrameLayout>
 
@@ -153,15 +151,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
 
-                android:paddingLeft="18dp"
                 android:layout_margin="1dp"
-
                 android:background="#ffffff"
+
                 android:inputType="textPassword"
+                android:paddingLeft="18dp"
 
                 android:textColor="#919cff"
-                android:textSize="18sp"
-                android:text="123456" />
+                android:textSize="18sp" />
 
         </FrameLayout>
 

@@ -58,15 +58,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
 
-                android:paddingLeft="18dp"
                 android:layout_margin="1dp"
-
                 android:background="#ffffff"
-                android:inputType="textEmailAddress"
 
-                android:textSize="18sp"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="18dp"
+
                 android:textColor="#919cff"
-                android:text="lorenzomart01@gmail.com"/>
+                android:textSize="18sp" />
 
         </FrameLayout>
 
@@ -98,13 +97,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
 
-                android:paddingLeft="18dp"
                 android:layout_margin="1dp"
-
                 android:background="#ffffff"
-                android:inputType="textPassword"
 
-                android:text="123456"
+                android:inputType="textPassword"
+                android:paddingLeft="18dp"
+
                 android:textColor="#919cff"
                 android:textSize="18sp" />
 
