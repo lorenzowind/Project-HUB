@@ -29,17 +29,6 @@
 
             app:srcCompat="@drawable/project_image_small" />
 
-        <ImageView
-            android:id="@+id/project_details"
-            app:srcCompat="@drawable/project_details"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-
-            android:layout_gravity="right|center_vertical"
-
-            android:layout_marginRight="14dp" />
-
         <TextView
             android:id="@+id/project_name"
             android:layout_width="wrap_content"

@@ -32,6 +32,7 @@ import br.com.lorenzowindmoller.projecthub.viewmodel.UserViewModel;
 public class Home extends AppCompatActivity implements View.OnClickListener {
     public static final int UPDATE_USER_REQUEST = 1;
     public static final int CREATE_PROJECT_REQUEST = 2;
+    public static final int UPDATE_PROJECT_REQUEST = 3;
 
     private UserViewModel userViewModel;
     private ProjectViewModel projectViewModel;
@@ -42,8 +43,6 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     private FrameLayout button_create_project;
 
     private User user;
-
-    //private List<Project> list_projects;
 
     private LinearLayout empty_projects;
     private ScrollView non_empty_projects;
@@ -85,8 +84,6 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         projectViewModel.getAllProjects(user.getId()).observe(this, new Observer<List<Project>>() {
             @Override
             public void onChanged(List<Project> projects) {
-                //list_projects = projects;
-
                 if (projects.size() > 0) {
                     non_empty_projects.setVisibility(View.VISIBLE);
                     empty_projects.setVisibility(View.GONE);
@@ -112,6 +109,16 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 Toast.makeText(Home.this, "Project deleted", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
+
+        adapter.setOnItemClickListener(new ProjectAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Project project) {
+                Intent intent = new Intent(Home.this, Details.class);
+                intent.putExtra("user", user);
+                intent.putExtra("project", project);
+                startActivityForResult(intent, UPDATE_PROJECT_REQUEST);
+            }
+        });
 
         button_back.setOnClickListener(this);
         button_image.setOnClickListener(this);
@@ -190,6 +197,21 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             projectViewModel.insert(new_project);
 
             Toast.makeText(this, "Project created", Toast.LENGTH_SHORT).show();
+        }
+
+        else if (requestCode == UPDATE_PROJECT_REQUEST && resultCode == RESULT_OK) {
+            String name = data.getStringExtra(Details.EXTRA_NAME);
+            String type = data.getStringExtra(Details.EXTRA_TYPE);
+            String description = data.getStringExtra(Details.EXTRA_DESCRIPTION);
+            String image = data.getStringExtra(Details.EXTRA_IMAGE);
+
+            Project project = new Project(user.getId(), name, type, description, image);
+
+            project.setId(Integer.parseInt(data.getStringExtra(Details.EXTRA_ID)));
+
+            projectViewModel.update(project);
+
+            Toast.makeText(this, "Project updated", Toast.LENGTH_SHORT).show();
         }
     }
 

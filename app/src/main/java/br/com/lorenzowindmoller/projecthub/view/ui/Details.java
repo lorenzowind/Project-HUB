@@ -13,15 +13,18 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import br.com.lorenzowindmoller.projecthub.R;
+import br.com.lorenzowindmoller.projecthub.service.model.Project.Project;
 import br.com.lorenzowindmoller.projecthub.service.model.User.User;
 import br.com.lorenzowindmoller.projecthub.view.ui.component.ImageDialog;
 
-public class Profile extends AppCompatActivity implements View.OnClickListener, ImageDialog.ImageDialogListener {
+public class Details extends AppCompatActivity implements View.OnClickListener, ImageDialog.ImageDialogListener {
+    public static final String EXTRA_ID =
+            "package br.com.lorenzowindmoller.projecthub.view.ui.EXTRA_ID";
     public static final String EXTRA_NAME =
             "package br.com.lorenzowindmoller.projecthub.view.ui.EXTRA_NAME";
-    public static final String EXTRA_EMAIL =
+    public static final String EXTRA_TYPE =
             "package br.com.lorenzowindmoller.projecthub.view.ui.EXTRA_EMAIL";
-    public static final String EXTRA_PASSWORD =
+    public static final String EXTRA_DESCRIPTION =
             "package br.com.lorenzowindmoller.projecthub.view.ui.EXTRA_PASSWORD";
     public static final String EXTRA_IMAGE =
             "package br.com.lorenzowindmoller.projecthub.view.ui.EXTRA_IMAGE";
@@ -30,58 +33,54 @@ public class Profile extends AppCompatActivity implements View.OnClickListener, 
     private ImageView button_confirm;
     private ImageView button_edit_image;
 
-    private TextView button_delete_account;
-
-    private ImageView image_profile;
+    private ImageView image_project;
     private String image = "";
 
     private EditText text_name;
-    private EditText text_email;
-    private EditText text_password;
+    private EditText text_type;
+    private EditText text_description;
 
     private User user;
+    private Project project;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_project_details);
 
         Intent intent = getIntent();
         user = (User) intent.getSerializableExtra("user");
+        project = (Project) intent.getSerializableExtra("project");
 
         button_cancel = findViewById(R.id.button_cancel_project_details);
-        button_confirm = findViewById(R.id.button_confirm_profile);
-        button_edit_image = findViewById(R.id.edit_image_profile);
+        button_confirm = findViewById(R.id.button_confirm_project_details);
+        button_edit_image = findViewById(R.id.edit_image_project_details);
 
-        button_delete_account = findViewById(R.id.textview_delete_profile);
+        image_project = findViewById(R.id.project_image_details);
 
-        image_profile = findViewById(R.id.image_profile);
+        text_name = findViewById(R.id.text_name_project_details);
+        text_type = findViewById(R.id.text_type_project_details);
+        text_description = findViewById(R.id.text_description_project_details);
 
-        text_name = findViewById(R.id.text_name_profile);
-        text_email = findViewById(R.id.text_email_profile);
-        text_password = findViewById(R.id.text_password_profile);
+        text_name.setText(project.getName());
+        text_type.setText(project.getType());
+        text_description.setText(project.getDescription());
 
-        text_name.setText(user.getName());
-        text_email.setText(user.getEmail());
-        text_password.setText(user.getPassword());
-
-        if (user.getImage() != "") {
+        if (project.getImage() != "") {
             Picasso.get()
-                .load(user.getImage())
-                .resize(180, 180)
-                .centerCrop()
-                .into(image_profile);
+                    .load(project.getImage())
+                    .resize(180, 180)
+                    .centerCrop()
+                    .into(image_project);
         }
 
         button_cancel.setOnClickListener(this);
         button_confirm.setOnClickListener(this);
         button_edit_image.setOnClickListener(this);
-
-        button_delete_account.setOnClickListener(this);
     }
 
     public void onClick(View v) {
-        if (v == button_confirm) update_user();
+        if (v == button_confirm) update_project();
 
         else if (v == button_cancel) {
             Intent intent = new Intent(getApplicationContext(), Home.class);
@@ -91,31 +90,26 @@ public class Profile extends AppCompatActivity implements View.OnClickListener, 
         }
 
         else if (v == button_edit_image) change_image();
-
-        else if (v == button_delete_account) {
-            Intent data = new Intent();
-            setResult(-2, data);
-            finish();
-        }
     }
 
-    private void update_user() {
+    private void update_project() {
         String name = text_name.getText().toString();
-        String email = text_email.getText().toString();
-        String password = text_password.getText().toString();
+        String type = text_type.getText().toString();
+        String description = text_description.getText().toString();
 
-        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+        if (name.isEmpty() || type.isEmpty() || description.isEmpty()) {
             Toast.makeText(this, "Please insert all the fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
         Intent data = new Intent();
+        data.putExtra(EXTRA_ID, Integer.toString(project.getId()));
         data.putExtra(EXTRA_NAME, name);
-        data.putExtra(EXTRA_EMAIL, email);
-        data.putExtra(EXTRA_PASSWORD, password);
+        data.putExtra(EXTRA_TYPE, type);
+        data.putExtra(EXTRA_DESCRIPTION, description);
 
         if (!image.equals("")) data.putExtra(EXTRA_IMAGE, image);
-        else data.putExtra(EXTRA_IMAGE, user.getImage());
+        else data.putExtra(EXTRA_IMAGE, project.getImage());
 
         setResult(RESULT_OK, data);
         finish();
@@ -128,21 +122,21 @@ public class Profile extends AppCompatActivity implements View.OnClickListener, 
 
     @Override
     public void applyTextImageDialog(String url) {
-        Drawable drawable = image_profile.getDrawable();
+        Drawable drawable = image_project.getDrawable();
 
         if(url.length() != 0) {
             image = url;
             Picasso.get()
-                .load(image)
-                .resize(180, 180)
-                .centerCrop()
-                .into(image_profile);
+                    .load(image)
+                    .resize(180, 180)
+                    .centerCrop()
+                    .into(image_project);
         }
         else {
             Toast.makeText(this, "URL not valid", Toast.LENGTH_SHORT).show();
         }
 
-        if (image_profile.getDrawable() == null || url.length() == 0) image_profile.setImageDrawable(drawable);
+        if (image_project.getDrawable() == null || url.length() == 0) image_project.setImageDrawable(drawable);
     }
 
 }

@@ -34,6 +34,8 @@
 
         <activity android:name=".view.ui.CreateProject" />
 
+        <activity android:name=".view.ui.Details" />
+
     </application>
 
 </manifest>

@@ -18,7 +18,7 @@
         android:orientation="horizontal" >
 
         <ImageView
-            android:id="@+id/button_cancel_profile"
+            android:id="@+id/button_cancel_project_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 

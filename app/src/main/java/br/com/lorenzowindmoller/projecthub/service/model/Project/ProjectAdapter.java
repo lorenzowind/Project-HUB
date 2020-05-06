@@ -3,6 +3,7 @@ package br.com.lorenzowindmoller.projecthub.service.model.Project;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ import br.com.lorenzowindmoller.projecthub.R;
 
 public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectHolder> {
     private List<Project> projects = new ArrayList<>();
+    private OnItemClickListener listener;
 
     @NonNull
     @Override
@@ -34,10 +36,10 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectH
 
         if (!currentProject.getImage().equals("")) {
             Picasso.get()
-                .load(currentProject.getImage())
-                .resize(50, 50)
-                .centerCrop()
-                .into(holder.imageViewProject);
+                    .load(currentProject.getImage())
+                    .resize(50, 50)
+                    .centerCrop()
+                    .into(holder.imageViewProject);
         }
     }
 
@@ -65,7 +67,24 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectH
             textViewName = itemView.findViewById(R.id.project_name);
             textViewType = itemView.findViewById(R.id.project_type);
             imageViewProject = itemView.findViewById(R.id.project_image);
-        }
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(projects.get(position));
+                    }
+                }
+            });
+        }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(Project project);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 }

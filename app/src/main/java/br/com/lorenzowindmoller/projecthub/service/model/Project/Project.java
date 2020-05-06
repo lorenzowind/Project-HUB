@@ -1,10 +1,12 @@
 package br.com.lorenzowindmoller.projecthub.service.model.Project;
 
+import java.io.Serializable;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "projects_table")
-public class Project {
+public class Project implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
