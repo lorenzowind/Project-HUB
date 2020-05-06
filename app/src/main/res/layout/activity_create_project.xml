@@ -32,30 +32,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_marginLeft="16dp"
-
             android:layout_centerHorizontal="false"
-            android:layout_centerInParent="false"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/button_cancel_create_project"
-
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="25dp"
+            android:text="N E W P R O J E C T"
             android:textColor="#ffffff"
-            android:textSize="24sp"
-            android:text="N E W P R O J E C T" />
-
-        <ImageView
-            android:id="@+id/button_profile_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginRight="24dp"
-            android:layout_marginTop="12dp"
-
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-
-            app:srcCompat="@drawable/profile_small" />
+            android:textSize="24sp" />
 
     </RelativeLayout>
 
@@ -115,6 +98,7 @@
 
                     android:inputType="textPersonName"
                     android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
 
                     android:text="Project 1"
                     android:textColor="#2699fb"
@@ -151,6 +135,7 @@
                     android:layout_height="32dp"
 
                     android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
                     android:layout_margin="1dp"
                     android:layout_marginLeft="18dp"
                     android:layout_marginRight="18dp"
@@ -222,7 +207,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <FrameLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -231,24 +216,50 @@
 
                 android:background="#BCE0FD">
 
-                <TextView
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/input_image_create_project"
+                    android:layout_width="wrap_content"
                     android:layout_height="32dp"
 
-                    android:paddingLeft="6dp"
-                    android:layout_margin="1dp"
-                    android:layout_marginLeft="18dp"
-                    android:layout_marginRight="18dp"
+                    android:layout_alignParentBottom="false"
+
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_toLeftOf="@id/button_copy_project"
 
                     android:background="#f1f9ff"
+
                     android:gravity="fill_horizontal|center"
+                    android:hint="URL Image"
 
-                    android:textColor="#bce0fd"
-                    android:textSize="18sp"
-                    android:textStyle="italic"
-                    android:text="Choose an image" />
+                    android:inputType="text"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:textColor="#2699fb"
+                    android:textColorHint="#BCE0FD"
+                    android:textSize="18sp" />
 
-            </FrameLayout>
+                <ImageView
+                    android:id="@+id/button_copy_project"
+                    android:layout_width="30dp"
+                    android:layout_height="32dp"
+
+                    android:layout_alignParentRight="true"
+
+                    android:layout_gravity="right|center_vertical"
+
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+
+                    android:background="#f1f9ff"
+                    app:srcCompat="@drawable/paste" />
+
+            </RelativeLayout>
 
             <FrameLayout
                 android:id="@+id/button_create_project"

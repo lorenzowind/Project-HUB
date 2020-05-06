@@ -71,7 +71,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             String email = data.getStringExtra(CreateAccount.EXTRA_EMAIL);
             String password = data.getStringExtra(CreateAccount.EXTRA_PASSWORD);
 
-            User new_user = new User(name, email, password, null);
+            User new_user = new User(name, email, password, "");
 
             for (User user : list_users) {
                 if (user.getEmail().equals(new_user.getEmail())) {
