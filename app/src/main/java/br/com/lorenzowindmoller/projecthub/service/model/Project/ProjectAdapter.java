@@ -51,6 +51,10 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectH
         notifyDataSetChanged();
     }
 
+    public Project getProjectAt(int position) {
+        return projects.get(position);
+    }
+
     class ProjectHolder extends RecyclerView.ViewHolder {
         private TextView textViewName;
         private TextView textViewType;

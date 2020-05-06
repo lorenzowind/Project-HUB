@@ -1,5 +1,6 @@
 package br.com.lorenzowindmoller.projecthub.view.ui;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
@@ -18,6 +19,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import br.com.lorenzowindmoller.projecthub.R;
@@ -41,7 +43,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
 
     private User user;
 
-    private List<Project> list_projects;
+    //private List<Project> list_projects;
 
     private LinearLayout empty_projects;
     private ScrollView non_empty_projects;
@@ -83,7 +85,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         projectViewModel.getAllProjects(user.getId()).observe(this, new Observer<List<Project>>() {
             @Override
             public void onChanged(List<Project> projects) {
-                list_projects = projects;
+                //list_projects = projects;
 
                 if (projects.size() > 0) {
                     non_empty_projects.setVisibility(View.VISIBLE);
@@ -96,6 +98,20 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 adapter.setProjects(projects);
             }
         });
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
+                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                projectViewModel.delete(adapter.getProjectAt(viewHolder.getAdapterPosition()));
+                Toast.makeText(Home.this, "Project deleted", Toast.LENGTH_SHORT).show();
+            }
+        }).attachToRecyclerView(recyclerView);
 
         button_back.setOnClickListener(this);
         button_image.setOnClickListener(this);
@@ -152,6 +168,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         }
 
         else if (requestCode == UPDATE_USER_REQUEST && resultCode == -2) {
+            projectViewModel.deleteAllProjects(user.getId());
+
             userViewModel.delete(user);
 
             Toast.makeText(this, "User deleted", Toast.LENGTH_SHORT).show();

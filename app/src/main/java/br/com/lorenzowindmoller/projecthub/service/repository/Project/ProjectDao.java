@@ -23,8 +23,8 @@ public interface ProjectDao {
     @Delete
     void delete(Project project);
 
-    @Query("DELETE FROM projects_table")
-    void deleteAllProjects();
+    @Query("DELETE FROM projects_table WHERE user_id = :user_id")
+    void deleteAllProjects(int user_id);
 
     @Query("SELECT * FROM projects_table WHERE user_id = :user_id")
     LiveData<List<Project>> getAllProjects(int user_id);

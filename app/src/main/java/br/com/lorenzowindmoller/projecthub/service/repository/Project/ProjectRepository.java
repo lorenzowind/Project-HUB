@@ -30,8 +30,8 @@ public class ProjectRepository {
         new DeleteProjectAsyncTask(projectDao).execute(project);
     }
 
-    public void deleteAllProjects() {
-        new DeleteAllProjectAsyncTask(projectDao).execute();
+    public void deleteAllProjects(int user_id) {
+        new DeleteAllProjectAsyncTask(projectDao).execute(user_id);
     }
 
     public LiveData<List<Project>> getAllProjects(int user_id) {
@@ -81,7 +81,7 @@ public class ProjectRepository {
         }
     }
 
-    private static class DeleteAllProjectAsyncTask extends AsyncTask<Void, Void, Void> {
+    private static class DeleteAllProjectAsyncTask extends AsyncTask<Integer, Void, Void> {
         private ProjectDao projectDao;
 
         private DeleteAllProjectAsyncTask(ProjectDao projectDao) {
@@ -89,8 +89,8 @@ public class ProjectRepository {
         }
 
         @Override
-        protected Void doInBackground(Void... voids) {
-            projectDao.deleteAllProjects();
+        protected Void doInBackground(Integer... integers) {
+            projectDao.deleteAllProjects(integers[0]);
             return null;
         }
     }

@@ -31,8 +31,8 @@ public class ProjectViewModel extends AndroidViewModel {
         repository.delete(project);
     }
 
-    public void deleteAllProjects() {
-        repository.deleteAllProjects();
+    public void deleteAllProjects(int user_id) {
+        repository.deleteAllProjects(user_id);
     }
 
     public LiveData<List<Project>> getAllProjects(int user_id) {
