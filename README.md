@@ -23,7 +23,7 @@ The project was developed using the following technologies
 - [Room](https://developer.android.com/jetpack/androidx/releases/room)
 - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
 - [RecyclerView](https://developer.android.com/guide/topics/ui/layout/recyclerview)
-- [MVVM architeture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
+- [MVVM architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
 - [Picasso library](https://square.github.io/picasso/)
 
 ---
